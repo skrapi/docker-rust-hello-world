@@ -2,7 +2,7 @@
 
 I am new to Rust and Docker, I have been trying to containerize one of my Rust projects. I have been struggling a lot with the example Dockerfile on the official, so this is my attempt to simplify the process as much as possible.
 
-## Process v0
+## Example 1
 
 1. Create a new Rust application
 
@@ -21,8 +21,10 @@ COPY . .
 RUN cargo install --path .
 
 CMD ["myapp"]
+
 ```
-3. Build the image
+3. Replace `myapp` with the `docker-rust-hello-world` as that is the name of my application
+4. Build the image
 
 ```bash
 docker build -t my-rust-app .
@@ -30,12 +32,12 @@ docker build -t my-rust-app .
 
 ![Built Image](images/process_v0_built_image.png)
 
-4. Run the container
+5. Run the container
 
 ```bash
 docker run -it --rm --name my-running-app my-rust-app
 ```
 
-5. Get Error
+6. You should see `Hello, world!` written to the terminal, and the container should then stop
 
-![Run Error](images/process_v0_run_error.png)
+## Example 2
